@@ -1,0 +1,11 @@
+logLevel: "debug"
+crypto: "local"
+
+# Bridge options
+startBridge: true
+localPublish: true
+
+# BridgeInTopic is the topic to subscribe to for messages to be relayed to the other broker.
+bridgeInTopic: "ql_bridge/in"
+# BridgeOutTopic is the topic to publish to for messages to be relayed to the other broker.
+bridgeOutTopic: "ql_bridge/out"
