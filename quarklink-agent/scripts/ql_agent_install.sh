@@ -53,6 +53,7 @@ echo $sys_type
 case $sys_type in
   x86_64)
     echo "64-bit system x86_64, no binary found"
+    exit 1
     ;;
   aarch64)
     echo "64 bit arm system aarch64"
@@ -72,6 +73,7 @@ case $sys_type in
     ;;
 esac
 
+#copy configs and service descriptions.
 curl -o $quarklink_config_dir/agent/config.yaml $agent_config
 curl -o /etc/systemd/system/quarklink-agent-go.service $agent_service
 
