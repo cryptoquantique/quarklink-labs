@@ -77,7 +77,7 @@ curl -o /etc/systemd/system/quarklink-agent-go.service $agent_service
 
 #run the agent
 chmod +x /usr/local/bin/quarklink-agent
-/usr/local/bin/quarklink-agent -deviceID
+/usr/local/bin/quarklink-agent -crypto=local -deviceID
 if [ "$?" -ne 0 ]; then
     echo "Quarklink agent failed to start, check whether device id added to batch etc."
     exit 1
