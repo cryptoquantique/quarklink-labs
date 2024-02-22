@@ -52,7 +52,8 @@ echo $sys_type
 
 case $sys_type in
   x86_64)
-    echo "64-bit system x86_64, no binary found"
+    echo "64-bit system x86_64"
+    curl -o /usr/local/bin/quarklink-agent $amd64_agent
     exit 1
     ;;
   aarch64)
