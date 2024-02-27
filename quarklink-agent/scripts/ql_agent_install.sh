@@ -9,6 +9,17 @@ agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/
 agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/config.yaml"
 quarklink_config_dir="/etc/quarklink"
 
+# start_agent function will enable the agent to start on boot and start the agent
+start_agent () {
+  systemctl enable quarklink-agent-go
+  systemctl start quarklink-agent-go
+  if [ "$?" -ne 0 ]; then
+    echo "Quarklink agent failed to start, check whether device id added to batch etc."
+    exit 1
+  fi
+  exit 0
+}
+
 echo "...Installing quarklink agent..."
 #Check if the user is root
 if [ `id -u` -ne 0 ]; then
@@ -19,13 +30,7 @@ fi
 # Check if root ca file exists
 if [ -f $quarklink_config_dir/ql_ca_cert.pem ]; then
   echo "Root certificate already exists, seems like already provisioned, trying to start agent"
-  systemctl enable quarklink-agent-go
-  systemctl start quarklink-agent-go
-  if [ "$?" -ne 0 ]; then
-    echo "Quarklink agent failed to start, check whether device id added to batch etc."
-    exit 1
-  fi
-  exit 0
+  start_agent
 fi
 
 # Create the Quarklink directory
@@ -84,3 +89,8 @@ if [ "$?" -ne 0 ]; then
     echo "Quarklink agent failed to start, check whether device id added to batch etc."
     exit 1
 fi
+
+# Start the agent and enable it to start on boot
+start_agent
+
+
