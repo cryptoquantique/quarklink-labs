@@ -1,6 +1,8 @@
 #!/bin/sh
 # This is a script to install the Quarklink Agent on a Linux system
 
+#run as root
+sudo sh -c '
 #configs
 arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm64.bin"
 arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm.bin"
@@ -84,3 +86,4 @@ if [ "$?" -ne 0 ]; then
     echo "Quarklink agent failed to start, check whether device id added to batch etc."
     exit 1
 fi
+'
