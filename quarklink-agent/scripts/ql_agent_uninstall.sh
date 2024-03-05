@@ -1,5 +1,6 @@
 #!/bin/sh
 
+sudo sh -c '
 #stop agent
 systemctl disable quarklink-agent-go
 systemctl stop quarklink-agent-go
@@ -9,3 +10,4 @@ rm -rf /usr/local/bin/quarklink-agent
 rm -rf /etc/quarklink
 
 echo "remove device from batch"
+'
