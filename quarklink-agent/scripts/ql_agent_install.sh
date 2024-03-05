@@ -1,14 +1,7 @@
 #!/bin/sh
 # This is a script to install the Quarklink Agent on a Linux system
 
-#configs
-arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm64.bin"
-arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm.bin"
-amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-amd64.bin"
-agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/quarklink-agent-go.service"
-agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/config.yaml"
-quarklink_config_dir="/etc/quarklink"
-
+sudo sh -c '
 # start_agent function will enable the agent to start on boot and start the agent
 start_agent () {
   systemctl enable quarklink-agent-go
@@ -19,6 +12,15 @@ start_agent () {
   fi
   exit 0
 }
+
+
+#configs
+arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm64.bin"
+arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm.bin"
+amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-amd64.bin"
+agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/quarklink-agent-go.service"
+agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/config.yaml"
+quarklink_config_dir="/etc/quarklink"
 
 echo "...Installing quarklink agent..."
 #Check if the user is root
@@ -92,5 +94,5 @@ fi
 
 # Start the agent and enable it to start on boot
 start_agent
-
+'
 
