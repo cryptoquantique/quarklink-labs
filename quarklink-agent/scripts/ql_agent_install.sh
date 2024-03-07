@@ -15,9 +15,9 @@ start_agent () {
 
 
 #configs
-arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm64.bin"
-arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-arm.bin"
-amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-go-amd64.bin"
+arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-arm64.bin"
+arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-arm.bin"
+amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/quarklink-agent-amd64.bin"
 agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/quarklink-agent-go.service"
 agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/service/config.yaml"
 quarklink_config_dir="/etc/quarklink"
