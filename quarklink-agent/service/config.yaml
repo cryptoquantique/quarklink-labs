@@ -1,5 +1,12 @@
+# Log level options: "debug", "info", "warn", "error"
 logLevel: "info"
+
+# Crypto modules to use, can be local, tpm or ecc608
 crypto: "local"
+
+# Options for TPM
+# Path to the TPM device, e.g. "/dev/tpm0". Must be provided if crypto is set to "tpm".
+# tpmPath: "/dev/tpm0"
 
 # Bridge options
 startBridge: true
@@ -9,3 +16,4 @@ localPublish: true
 bridgeInTopic: "ql_bridge/in"
 # BridgeOutTopic is the topic to publish to for messages to be relayed to the other broker.
 bridgeOutTopic: "ql_bridge/out"
+
