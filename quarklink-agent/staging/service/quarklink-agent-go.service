@@ -1,0 +1,14 @@
+[Unit]
+Description=A quarklink agent to run on a Raspberry Pi with TPM and ECC608 support written in Golang.
+
+[Service]
+User=root
+WorkingDirectory=/root
+ExecStart=/usr/local/bin/quarklink-agent -config /etc/quarklink/agent/config.yaml
+
+# optional items below
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
