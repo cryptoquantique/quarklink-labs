@@ -15,11 +15,11 @@ start_agent () {
 
 
 #configs
-arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/staging/quarklink-agent-arm64.bin"
-arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/staging/quarklink-agent-arm.bin"
-amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/staging/quarklink-agent-amd64.bin"
-agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/staging/service/quarklink-agent-go.service"
-agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent/staging/service/config.yaml"
+arm64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/quarklink-agent-arm64.bin"
+arm32_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/quarklink-agent-arm.bin"
+amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/quarklink-agent-amd64.bin"
+agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/service/quarklink-agent-go.service"
+agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/service/config.yaml"
 quarklink_config_dir="/etc/quarklink"
 
 echo "...Installing quarklink agent..."
