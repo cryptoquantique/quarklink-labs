@@ -37,8 +37,9 @@ read_provision_details () {
   while read line
   do
     # break if the line is empty
-    [ -z "$line" ] && break
+    [ -z "$line" ]
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
+  done
 
   # read signing key 
   echo "Enter the signing key (you may have to press enter twice)"
