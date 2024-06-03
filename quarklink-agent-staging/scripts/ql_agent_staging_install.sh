@@ -41,6 +41,14 @@ read_provision_details () {
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
   done
 
+  #read signing key
+  echo "Enter the signing key (you may have to press enter twice)"
+  while read line
+  do
+    # break if the line is empty
+    [ -z "$line" ] && break
+    echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
+  done
 }
 
 # install_agent function will install the agent onto the machine
