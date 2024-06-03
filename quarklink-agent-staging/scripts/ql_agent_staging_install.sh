@@ -37,7 +37,7 @@ read_provision_details () {
   while read line
   do
     # break if the line is empty
-    [ -z "$line" ]
+    [ -z "$line" ] && break
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
   done
 
