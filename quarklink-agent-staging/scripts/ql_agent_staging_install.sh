@@ -37,9 +37,7 @@ read_provision_details () {
   while read line
   do
     # break if the line is empty
-    if [ -z "$line" ]; then
-      echo "Continuing..."
-      break
+    if [ -z "$line" ]; then break
     fi
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
   done
@@ -48,9 +46,10 @@ read_provision_details () {
   echo "Enter the signing key (you may have to press enter twice)"
   while read line
   do
-    # break if the line is empty
-    [ -z "$line" ] && break
-    echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
+    # continue if the line is empty
+    if [ -z "$line" ]; then break
+    fi
+  echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
   done
 }
 
