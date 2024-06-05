@@ -37,12 +37,12 @@ read_provision_details () {
   echo "Enter the root certificate (you may have to press enter twice)"
   if read -t 0; then
     echo "There's something to read on standard input."
-    while read -r line
-    do
-      # break if the line is empty
-      [ -z "$line" ] && break
-      echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
-    done
+    # while read -r line
+    # do
+    #   # break if the line is empty
+    #   [ -z "$line" ] && break
+    #   echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
+    # done
 
     echo "Finished reading lines."
   fi
