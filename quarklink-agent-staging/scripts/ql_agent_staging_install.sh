@@ -32,30 +32,11 @@ read_provision_details () {
   read instance
   echo $instance > $quarklink_config_dir/ql_endpoint
 
-  [ -f "$quarklink_config_dir/ql_ca_cert.pem" ] && rm "$quarklink_config_dir/ql_ca_cert.pem"
   #read root certificate
   echo "Enter the root certificate (you may have to press enter twice)"
   if read -t 0; then
     echo "There's something to read on standard input."
-    # while read -r line
-    # do
-    #   # break if the line is empty
-    #   [ -z "$line" ] && break
-    #   echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
-    # done
-
-    echo "Finished reading lines."
   fi
-
-  # [ -f "$quarklink_config_dir/ql_sign_key.pem" ] && rm "$quarklink_config_dir/ql_sign_key.pem"
-  # #read signing key
-  # echo "Enter the signing key (you may have to press enter twice)"
-  # while read -r line
-  # do
-  #   # break if the line is empty
-  #   [ -z "$line" ] && break
-  #   echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
-  # done
 }
 
 # install_agent function will install the agent onto the machine
