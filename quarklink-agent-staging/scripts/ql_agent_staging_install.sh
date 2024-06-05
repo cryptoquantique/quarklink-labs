@@ -43,6 +43,10 @@ read_provision_details () {
       [ -z "$line" ] && break
       echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
     done
+
+    echo "Finished reading lines."
+  else
+    echo "There's nothing to be read on standard input at the moment."
   fi
 
   [ -f "$quarklink_config_dir/ql_sign_key.pem" ] && rm "$quarklink_config_dir/ql_sign_key.pem"
