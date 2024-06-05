@@ -42,8 +42,9 @@ read_provision_details () {
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
   done
 
+  [ -f "$quarklink_config_dir/signing key.pem" ] && rm "$quarklink_config_dir/signing key.pem"
   #read signing key
-  echo "Enter the root certificate (you may have to press enter twice)"
+  echo "Enter the signing key (you may have to press enter twice)"
   while read -r line
   do
     # break if the line is empty
