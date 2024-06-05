@@ -32,15 +32,15 @@ read_provision_details () {
   read instance
   echo $instance > $quarklink_config_dir/ql_endpoint
 
-  #read root certificate
-  echo "Enter the root certificate (you may have to press enter twice)"
-  [ -f "$quarklink_config_dir/ql_ca_cert.pem" ]; then rm "$quarklink_config_dir/ql_ca_cert.pem"
-  while read -r line
-  do
-    # break if the line is empty
-    [ -z "$line" ] && break
-    echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
-  done
+  # #read root certificate
+  # echo "Enter the root certificate (you may have to press enter twice)"
+  # [ -f "$quarklink_config_dir/ql_ca_cert.pem" ]; then rm "$quarklink_config_dir/ql_ca_cert.pem"
+  # while read -r line
+  # do
+  #   # break if the line is empty
+  #   [ -z "$line" ] && break
+  #   echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
+  # done
 
   #read signing key
   echo "Enter the signing key (you may have to press enter twice)"
