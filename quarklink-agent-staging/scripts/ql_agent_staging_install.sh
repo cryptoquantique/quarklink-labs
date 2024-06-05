@@ -43,8 +43,6 @@ read_provision_details () {
   done
 
   [ -f "$quarklink_config_dir/ql_sign_key.pem" ] && rm "$quarklink_config_dir/ql_sign_key.pem"
-  [ -f "$quarklink_config_dir/ql_signing key.pem" ] && rm "$quarklink_config_dir/ql_signing key.pem"
-  [ -f "$quarklink_config_dir/signing key.pem" ] && rm "$quarklink_config_dir/signing key.pem"
   #read signing key
   echo "Enter the signing key (you may have to press enter twice)"
   while read -r line
