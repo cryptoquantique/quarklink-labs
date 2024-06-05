@@ -42,17 +42,15 @@ read_provision_details () {
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
   done
 
-  # #read signing key
-  # echo "Enter the signing key (you may have to press enter twice)"
-  # [ -z "$line" ] && break
-  #   echo "" > $quarklink_config_dir/ql_sign_key.pem
-  #   while read -r line
-  #   do
-  #     # continue if the line is empty
-  #     if [ -z "$line" ]; then break
-  #     fi 
-  #     echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
-  #   done
+  #read signing key
+  echo "Enter the root certificate (you may have to press enter twice)"
+  [ -f "$quarklink_config_dir/signing key.pem" ]; then rm "$quarklink_config_dir/ql_casigning key_cert.pem"
+  while read line
+  do
+    # break if the line is empty
+    [ -z "$line" ] && break
+    echo "$line" >> $quarklink_config_dir/signing key.pem
+  done
 }
 
 # install_agent function will install the agent onto the machine
