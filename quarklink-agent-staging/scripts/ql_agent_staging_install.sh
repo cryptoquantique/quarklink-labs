@@ -37,15 +37,15 @@ start_agent () {
     echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
   done
 
-  [ -f "$quarklink_config_dir/ql_sign_key.pem" ] && rm "$quarklink_config_dir/ql_sign_key.pem"
-  #read signing key
-  echo "Enter the signing key (you may have to press enter twice)"
-  while read -r line
-  do
-    # break if the line is empty
-    [ -z "$line" ] && break
-    echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
-  done
+  # [ -f "$quarklink_config_dir/ql_sign_key.pem" ] && rm "$quarklink_config_dir/ql_sign_key.pem"
+  # #read signing key
+  # echo "Enter the signing key (you may have to press enter twice)"
+  # while read -r line
+  # do
+  #   # break if the line is empty
+  #   [ -z "$line" ] && break
+  #   echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
+  # done
 }
 
 # install_agent function will install the agent onto the machine
