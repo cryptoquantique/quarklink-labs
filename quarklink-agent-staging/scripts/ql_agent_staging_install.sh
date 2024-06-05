@@ -35,7 +35,7 @@ read_provision_details () {
   #read root certificate
   echo "Enter the root certificate (you may have to press enter twice)"
   if [ -z "$line" ] && break
-  fi  "$quarklink_config_dir/ql_ca_cert.pem"=""
+  fi  [ -f "$quarklink_config_dir/ql_ca_cert.pem" ]; then rm "$quarklink_config_dir/ql_ca_cert.pem"=""
   while read -r line
   do
     # break if the line is empty
