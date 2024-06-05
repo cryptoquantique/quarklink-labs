@@ -29,7 +29,7 @@ start_agent () {
 
   [ -f "$quarklink_config_dir/ql_ca_cert.pem" ] && rm "$quarklink_config_dir/ql_ca_cert.pem"
   #read root certificate
-  echo "Enter the root certificate (you may have to press enter twice)"
+  echo "Enter the xroot certificate (you may have to press enter twice)"
   while read -r line
   do
     # break if the line is empty
