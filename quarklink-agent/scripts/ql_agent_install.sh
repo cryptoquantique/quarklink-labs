@@ -54,8 +54,9 @@ do
   echo "$line" >> $quarklink_config_dir/ql_ca_cert.pem
 done
 
-#read root certificate
-echo "Enter the root certificate (you may have to press enter twice)"
+[ -f "$quarklink_config_dir/ql_sign_key.pem" ] && rm "$quarklink_config_dir/ql_sign_key.pem"
+#read signing key
+echo "Enter the signing key (you may have to press enter twice)"
 while read line
 do
   # break if the line is empty
