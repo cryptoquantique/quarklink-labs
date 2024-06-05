@@ -34,7 +34,6 @@ read_provision_details () {
 
   #read root certificate
   echo "Enter the root certificate (you may have to press enter twice)"
-
 }
 
 # install_agent function will install the agent onto the machine
