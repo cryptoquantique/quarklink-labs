@@ -47,8 +47,8 @@ read_provision_details () {
   do
     # continue if the line is empty
     if [ -z "$line" ]; then break
-    fi
-  echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
+    fi 
+    echo "$line" >> $quarklink_config_dir/ql_sign_key.pem
   done
 }
 
