@@ -35,8 +35,8 @@ read_provision_details () {
   #read root certificate
   echo "Enter the root certificate (you may have to press enter twice)"
   [ -z "$line" ]
-  echo "$line" > $quarklink_config_dir/ql_ca_cert.pem
-  while read line
+  echo "" > $quarklink_config_dir/ql_ca_cert.pem
+  while read -r line
   do
     # break if the line is empty
     [ -z "$line" ] && break
@@ -46,8 +46,8 @@ read_provision_details () {
   #read signing key
   echo "Enter the signing key (you may have to press enter twice)"
   [ -z "$line" ] 
-  echo "$line" > $quarklink_config_dir/ql_sign_key.pem
-  while read line
+  echo "" > $quarklink_config_dir/ql_sign_key.pem
+  while read -r line
   do
     # continue if the line is empty
     if [ -z "$line" ]; then break
