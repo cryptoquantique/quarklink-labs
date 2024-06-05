@@ -34,7 +34,7 @@ read_provision_details () {
 
   #read root certificate
   echo "Enter the root certificate (you may have to press enter twice)"
-  while read line
+  while read -r line
   do
     # break if the line is empty
     [ -z "$line" ] && break
@@ -43,7 +43,7 @@ read_provision_details () {
 
   #read signing key
   echo "Enter the root certificate (you may have to press enter twice)"
-  while read line
+  while read -r line
   do
     # break if the line is empty
     [ -z "$line" ] && break
