@@ -33,7 +33,7 @@ read_provision_details () {
   echo $instance > $quarklink_config_dir/ql_endpoint
 
   #read root certificate
-  echo "Enter the root certificate (you may have to press enter twice)"
+  echo "Enter the fdfdfdsfroot certificate (you may have to press enter twice)"
 }
 
 # install_agent function will install the agent onto the machine
