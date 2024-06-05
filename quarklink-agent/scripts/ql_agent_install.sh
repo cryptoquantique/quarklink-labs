@@ -44,7 +44,6 @@ echo "Enter the Quarklink instance name"
 read instance
 echo $instance > $quarklink_config_dir/ql_endpoint
 
-[ -f "$quarklink_config_dir/ql_ca_cert.pem" ] && rm "$quarklink_config_dir/ql_ca_cert.pem"
 #read root certificate
 echo "Enter the root certificate (you may have to press enter twice)"
 while read line
