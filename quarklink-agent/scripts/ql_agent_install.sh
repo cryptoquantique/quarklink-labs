@@ -52,9 +52,9 @@ read_provision_details () {
   done
   }
 
-  # install_agent function will install the agent onto the machine
-  install_agent () {
-    read_provision_details
+# install_agent function will install the agent onto the machine
+install_agent () {
+  read_provision_details
 
   # get system type
   sys_type=$(uname -m)
