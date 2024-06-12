@@ -22,6 +22,21 @@ start_agent () {
   exit 0
 }
 
+claim_or_skip() {
+  read -r -p "$1 (Claim flag or press Enter to skip): " response
+
+  if [[ -z "$response" ]]; then
+    echo "Skipping prompts and configuring for claiming..."
+    # Set flag claiming configuration here
+    # (Replace with your specific configuration commands)
+    return 0  # Indicate successful skip
+  else
+    # Process flag claim (if applicable)
+    # (Replace with your flag claim logic)
+    echo "Claiming flag: $response"
+  fi
+}
+
 read_provision_details () {
   # Create the Quarklink directory
   mkdir -p $quarklink_config_dir
@@ -55,6 +70,7 @@ read_provision_details () {
 
 # install_agent function will install the agent onto the machine
 install_agent () {
+  claim_or_skip()
   read_provision_details
 
   # get system type
@@ -116,6 +132,7 @@ if [ -e /usr/local/bin/quarklink-agent ]; then
   elif [ "$inputCommand" = "reprovision" ]; then
     echo
     echo "Reprovisioning with quarklink"
+    claim_or_skip()
     read_provision_details
     start_agent
   fi
