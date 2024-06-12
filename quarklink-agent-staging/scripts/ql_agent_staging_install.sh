@@ -23,19 +23,19 @@ start_agent () {
 }
 
 claim_or_skip() {
-  echo "DBG claim_or_skip"
-  read -r -p "$1 (Claim flag or press Enter to skip): " response
+  # echo "DBG claim_or_skip"
+  # read -r -p "$1 (Claim flag or press Enter to skip): " response
 
-  if [[ -z "$response" ]]; then
-    echo "Skipping prompts and configuring for claiming..."
-    # Set flag claiming configuration here
-    # (Replace with your specific configuration commands)
-    return 0  # Indicate successful skip
-  else
-    # Process flag claim (if applicable)
-    # (Replace with your flag claim logic)
-    echo "Claiming flag: $response"
-  fi
+  # if [[ -z "$response" ]]; then
+  #   echo "Skipping prompts and configuring for claiming..."
+  #   # Set flag claiming configuration here
+  #   # (Replace with your specific configuration commands)
+  #   return 0  # Indicate successful skip
+  # else
+  #   # Process flag claim (if applicable)
+  #   # (Replace with your flag claim logic)
+  #   echo "Claiming flag: $response"
+  # fi
 }
 
 read_provision_details () {
