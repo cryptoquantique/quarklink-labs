@@ -23,6 +23,7 @@ start_agent () {
 }
 
 claim_or_skip() {
+  echo "DBG claim_or_skip"
   read -r -p "$1 (Claim flag or press Enter to skip): " response
 
   if [[ -z "$response" ]]; then
