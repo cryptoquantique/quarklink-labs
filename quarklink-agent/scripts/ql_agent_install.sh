@@ -30,6 +30,10 @@ read_provision_details () {
   # read quarklink instance 
   echo "Enter the Quarklink instance name"
   read instance
+  if test -z "$instance"; then
+    echo "instance name empty, using claming"
+    return
+  fi
   echo $instance > $quarklink_config_dir/ql_endpoint
 
   #read root certificate

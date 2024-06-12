@@ -26,10 +26,13 @@ read_provision_details () {
   # Create the Quarklink directory
   mkdir -p $quarklink_config_dir
   mkdir -p $quarklink_config_dir/agent
-
-  # read quarklink instance 
+ 
   echo "Enter the Quarklink instance name"
   read instance
+  if test -z "$instance"; then
+    echo "instance name empty, using claming"
+    return
+  fi
   echo $instance > $quarklink_config_dir/ql_endpoint
 
   [ -f "$quarklink_config_dir/ql_ca_cert.pem" ] && rm "$quarklink_config_dir/ql_ca_cert.pem"
