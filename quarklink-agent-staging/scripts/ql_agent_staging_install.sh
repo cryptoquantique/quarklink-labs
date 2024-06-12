@@ -26,7 +26,7 @@ read_provision_details () {
   # Create the Quarklink directory
   mkdir -p $quarklink_config_dir
   mkdir -p $quarklink_config_dir/agent
- 
+
   # read quarklink instance 
   echo "Enter the Quarklink instance name"
   read instance
