@@ -9,6 +9,7 @@ amd64_agent="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/ma
 agent_service="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/service/quarklink-agent-go.service"
 agent_config="https://raw.githubusercontent.com/cryptoquantique/quarklink-labs/main/quarklink-agent-staging/service/config.yaml"
 quarklink_config_dir="/etc/quarklink"
+ssh_user="quarklink"
 
 # start_agent function will enable the agent to start on boot and start the agent
 start_agent () {
@@ -100,6 +101,16 @@ run_agent () {
   fi
 }
 
+# create ssh user
+create_ssh_user() {
+  if [ ! -d /home/$ssh_user ]; then
+    useradd -m -s /bin/bash $ssh_user
+    usermod -a -G sudo $ssh_user
+    mkdir /home/$ssh_user/.ssh/
+    ssh-keygen -t rsa -b 4096 -f /home/$ssh_user/.ssh/id_rsa -q -N ""
+  fi 
+}
+
 # Check if the binary already exists
 if [ -e /usr/local/bin/quarklink-agent ]; then
   echo "Quarklink agent has already been installed, Would you like to reinstall or reprovision?"
@@ -131,6 +142,9 @@ if [ -f $quarklink_config_dir/ql_ca_cert.pem ]; then
   echo "Root certificate already exists, seems like already provisioned, trying to start agent"
   start_agent
 fi
+
+#create ssh user
+create_ssh_user
 
 # Install agent
 install_agent
