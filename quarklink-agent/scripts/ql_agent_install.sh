@@ -102,7 +102,7 @@ run_agent () {
 # create ssh user
 create_ssh_user() {
   if [ ! -d /home/$ssh_user ]; then
-    useradd -m -s /bin/bash -p quarklink123 $ssh_user
+    useradd -m -s /bin/bash $ssh_user
     usermod -a -G sudo $ssh_user
     mkdir /home/$ssh_user/.ssh/
     ssh-keygen -t rsa -b 4096 -f /home/$ssh_user/.ssh/id_rsa -q -N ""
