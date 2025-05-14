@@ -8,7 +8,7 @@ systemctl stop quarklink-agent
 #remove agent and configs
 rm -rf /usr/bin/quarklink-agent
 rm -rf /etc/quarklink
-rm -rf /etc/systemd/system/quarklink-agent-go.service
+rm -rf /etc/systemd/system/quarklink-agent.service
 
 echo "remove device from batch"
 '
