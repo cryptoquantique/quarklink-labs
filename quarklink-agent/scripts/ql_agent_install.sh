@@ -13,8 +13,8 @@ ssh_user="quarklink"
 
 # start_agent function will enable the agent to start on boot and start the agent
 start_agent () {
-  systemctl enable quarklink-agent-go
-  systemctl start quarklink-agent-go
+  systemctl enable quarklink-agent
+  systemctl start quarklink-agent
   if [ "$?" -ne 0 ]; then
     echo "Quarklink agent failed to start, check whether device id added to batch etc."
     exit 1
@@ -68,19 +68,19 @@ install_agent () {
   case $sys_type in
     x86_64)
       echo "64-bit system x86_64"
-      curl -o /usr/local/bin/quarklink-agent $amd64_agent
+      curl -o /usr/bin/quarklink-agent $amd64_agent
       ;;
     aarch64)
       echo "64 bit arm system aarch64"
-      curl -o /usr/local/bin/quarklink-agent $arm64_agent
+      curl -o /usr/bin/quarklink-agent $arm64_agent
       ;;
     armv7l)
       echo "32 bit arm system armv7l"
-      curl -o /usr/local/bin/quarklink-agent $arm32_agent
+      curl -o /usr/bin/quarklink-agent $arm32_agent
       ;;
     amd64)
       echo "64 bit amd system amd64"
-      curl -o /usr/local/bin/quarklink-agent $amd64_agent
+      curl -o /usr/bin/quarklink-agent $amd64_agent
       ;;
     *)
       echo "Unsupported system type"
@@ -90,14 +90,14 @@ install_agent () {
 
   #copy configs and service descriptions.
   curl -o $quarklink_config_dir/agent/config.yaml $agent_config
-  curl -o /etc/systemd/system/quarklink-agent-go.service $agent_service
+  curl -o /etc/systemd/system/quarklink-agent.service $agent_service
 }
 
 # run_agent will start running the agent
 run_agent () {
   #run the agent
-  chmod +x /usr/local/bin/quarklink-agent
-  /usr/local/bin/quarklink-agent -crypto=local -deviceID
+  chmod +x /usr/bin/quarklink-agent
+  /usr/bin/quarklink-agent -crypto=local -deviceID
   if [ "$?" -ne 0 ]; then
       echo "Quarklink agent failed to start, check whether device id added to batch etc."
       exit 1
@@ -114,7 +114,7 @@ create_ssh_user() {
 }
 
 # Check if the binary already exists
-if [ -e /usr/local/bin/quarklink-agent ]; then
+if [ -e /usr/bin/quarklink-agent ]; then
   echo "Quarklink agent has already been installed, Would you like to reinstall or reprovision?"
   echo "reinstall/reprovision"
   printf "> "
@@ -123,7 +123,7 @@ if [ -e /usr/local/bin/quarklink-agent ]; then
     echo
     echo "Reinstalling Quarklink-Agent"
     rm -r $quarklink_config_dir
-    systemctl stop quarklink-agent-go
+    systemctl stop quarklink-agent
     install_agent
     start_agent
   elif [ "$inputCommand" = "reprovision" ]; then
