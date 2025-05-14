@@ -4,7 +4,7 @@ Description=A quarklink agent to run on a Raspberry Pi with TPM and ECC608 suppo
 [Service]
 User=root
 WorkingDirectory=/root
-ExecStart=/usr/local/bin/quarklink-agent -config /etc/quarklink/agent/config.yaml
+ExecStart=/usr/bin/quarklink-agent -config /etc/quarklink/agent/config.yaml
 
 # optional items below
 Restart=always
