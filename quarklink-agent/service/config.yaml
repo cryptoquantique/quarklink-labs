@@ -1,11 +1,10 @@
 # Log level options: "debug", "info", "warn", "error"
 logLevel: "info"
 
-# Crypto modules to use, can be local, tpm or ecc608
-crypto: "local"
+# Crypto modules defaults to "tpm" and falls back to "local" if not available
+crypto: "tpm"
 
-# Options for TPM
-# Path to the TPM device, e.g. "/dev/tpm0". Must be provided if crypto is set to "tpm".
+# Path to the TPM device, "/dev/tpm0" is the default, specify below if different
 # tpmPath: "/dev/tpm0"
 
 # Bridge options
